@@ -1,1 +1,1 @@
-# lama-server
+# lama-backend-server
