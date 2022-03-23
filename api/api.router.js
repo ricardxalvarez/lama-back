@@ -10,6 +10,6 @@ router.route('/password').get(Password.getPassword)
 router.route('/all').get(ProductsCtrl.getAllProducts)
 router.route('/item').get(ProductsCtrl.getItemById)
 router.route('/user').post(UserController.apiSubmitUser).get(UserController.getUser)
-router.route('/user/add').post(CartController.apiAddItem).put(CartController.apiUpdateItem)
+router.route('/user/add').post(CartController.apiAddItem).put(CartController.apiUpdateItem).delete(CartController.apiDeleteItem)
 router.route('/user/details/:id').get(UserController.getItemById)
 export default router

@@ -1,4 +1,4 @@
-import {ObjectId, ObjectID} from 'mongodb'
+import {ObjectId} from 'mongodb'
 
 let cart
 
@@ -14,7 +14,7 @@ export default class CartDao {
         try {
             const cartDoc = {
                 list,
-                userid : ObjectID(userid)
+                userid : ObjectId(userid)
             }
             return await cart.insertOne(cartDoc)
         } catch (error) {
@@ -30,6 +30,16 @@ export default class CartDao {
             return update    
         } catch (error) {
             
+        }
+    }
+    static async deleteCart(cartid){
+        try {
+            const deleteResponse = cart.deleteOne({
+                userid: ObjectId(cartid)
+            })
+            return deleteResponse
+        } catch (error) {
+            console.error(`Unable to delete cart ${error}`)
         }
     }
 }

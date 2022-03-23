@@ -21,4 +21,13 @@ export default class CartController {
             console.error(`Unable to update controller ${error}`)
         }
     }
+    static async apiDeleteItem(req,res,next){
+        try {
+            const cartid = req.query.userid
+            await CartDao.deleteCart(cartid)
+            res.json({status: 'success'})
+        } catch (error) {
+            res.status(500).json({status: error})
+        }
+    }
 }
