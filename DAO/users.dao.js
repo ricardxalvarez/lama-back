@@ -13,7 +13,7 @@ export default class UsersDao {
             }
         
     }
-    static async submitUser(name, lastname, username, email, password, cartlist, wishlist){
+    static async submitUser(name, lastname, username, email, password){
         let cursor = 
         await user.find({'username':username}).toArray()
         if (cursor.length === 0){
@@ -23,9 +23,7 @@ export default class UsersDao {
                     lastname,
                     username,
                     email,
-                    password,
-                    cartlist,
-                    wishlist
+                    password
                 }
                 return await user.insertOne(userDoc)
             } catch (error) {

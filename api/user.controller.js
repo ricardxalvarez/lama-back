@@ -7,8 +7,6 @@ export default class UserController {
         const email = req.body.email
         const user = req.body.username
         const password = req.body.password
-        const cartlist = req.body.cartlist
-        const wishlist = req.body.wishlist
 
         await UsersDao.submitUser(
             name,
@@ -16,8 +14,6 @@ export default class UserController {
             user,
             email,
             password,
-            cartlist,
-            wishlist
         )
         res.json({status : 'ok'})
     }
